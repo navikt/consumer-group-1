@@ -17,6 +17,7 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         logger.log(question)
         if (question.category == "team-registration") handleRegisterTeam(question);
         if (question.category == "arithmetic") handleArithmetic(question);
+        if (question.category == "question") handleQuestion(question);
     }
 
 
@@ -30,6 +31,10 @@ class QuizApplication(private val teamName: String, database: Database? = null):
 
     private fun handleRegisterTeam(question: Question) {
         answer(question.category, question.id(), "consumer-group-1")
+    }
+
+    private fun handleQuestion(question: Question) {
+        answer(question.category, question.id(), "https://www.detsombetyrnoe.no/")
     }
 
     private fun handleArithmetic(question: Question) {
