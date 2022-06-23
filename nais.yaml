@@ -1,0 +1,24 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: consumer-group-1
+  namespace: leesah-quiz
+  labels:
+    team: leesah-quiz
+spec:
+  image: {{image}}
+  port: 8080
+  replicas:
+    max: 1
+    min: 1
+  strategy:
+    type: Recreate
+  kafka:
+    pool: nav-dev
+  prometheus:
+    enabled: true
+    path: /metrics
+  env:
+    - name: QUIZ_TOPIC
+      value: "leesah-quiz.leesah-rapid-v2"
+
