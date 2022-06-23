@@ -11,6 +11,8 @@ spec:
   replicas:
     max: 1
     min: 1
+  ingresses:
+    - https://consumer-group-1.dev.intern.nav.no
   strategy:
     type: Recreate
   kafka:
