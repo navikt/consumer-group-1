@@ -28,8 +28,6 @@ class QuizApplication(private val teamName: String, database: Database? = null):
      */
 
     private fun handleRegisterTeam(question: Question) {
-        if (question.question ==  "register new team...") {
-            answer(question.category, question.id(), "consumer-group-1");
-        }
+        answer(question.category, question.id(), "consumer-group-1")
     }
 }
