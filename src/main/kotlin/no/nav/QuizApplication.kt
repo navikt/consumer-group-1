@@ -18,6 +18,7 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         if (question.category == "team-registration") handleRegisterTeam(question);
         if (question.category == "arithmetic") handleArithmetic(question);
         if (question.category == "question") handleQuestion(question);
+        if(question.category == "make-ingress") handleIngress(question);
     }
 
 
@@ -34,7 +35,13 @@ class QuizApplication(private val teamName: String, database: Database? = null):
     }
 
     private fun handleQuestion(question: Question) {
-        answer(question.category, question.id(), "https://www.detsombetyrnoe.no/")
+        if(question.question == "På hvilken nettside finner man informasjon om rekruttering til NAV IT?") answer(question.category, question.id(), "https://www.detsombetyrnoe.no/");
+        if(question.question == "Hva heter applikasjonsplattformen til NAV?") answer(question.category, question.id(), "NAIS");
+
+    }
+
+    private fun handleIngress(question: Question) {
+        answer(question.category, question.id(), "https://consumer-group-1.dev.intern.nav.no/")
     }
 
     private fun handleArithmetic(question: Question) {
