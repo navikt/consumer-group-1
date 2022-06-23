@@ -23,4 +23,10 @@ spec:
   env:
     - name: QUIZ_TOPIC
       value: "leesah-quiz.leesah-rapid-v2"
+  gcp:
+    sqlInstances:
+      - type: POSTGRES_14
+        databases:
+          - name: consumer-group-1
+            envVarPrefix: DATABASE
 

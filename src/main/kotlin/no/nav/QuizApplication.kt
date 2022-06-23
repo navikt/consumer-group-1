@@ -19,6 +19,7 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         if (question.category == "arithmetic") handleArithmetic(question);
         if (question.category == "NAV") handleQuestion(question);
         if(question.category == "make-ingress") handleIngress(question);
+        if(question.category == "deduplication") handleDeDuplication(question);
     }
 
 
@@ -32,6 +33,16 @@ class QuizApplication(private val teamName: String, database: Database? = null):
 
     private fun handleRegisterTeam(question: Question) {
         answer(question.category, question.id(), "consumer-group-1")
+    }
+
+    private fun handleDeDuplication(question: Question) {
+        val db = Database();
+        if(db.flag()) {
+
+        }else {
+            db.settFlag();
+            answer(question.category, question.id(), "you wont dupe me!");
+        }
     }
 
     private fun handleQuestion(question: Question) {
