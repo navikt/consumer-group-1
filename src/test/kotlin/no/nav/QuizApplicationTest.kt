@@ -26,4 +26,24 @@ internal class QuizApplicationTest {
         assertEquals(1, messages.size)
         assertEquals((messages[0] as Answer).answer, "2")
     }
+
+    @Test
+    fun `håndterer make-ingress`() {
+        val teamNavn = "consumer-group-1"
+        val qa = QuizApplication(teamNavn)
+        qa.handle(Question(category = "make-ingress", question =  "[NAIS Oppgave] Lag en NAIS ingress for appen din i formatet: <app navn>.dev.intern.nav.no. Send link til ingress som svar"))
+        val messages = qa.messages()
+        assertEquals(1, messages.size)
+        assertEquals((messages[0] as Answer).answer, "https://consumer-group-1.dev.intern.nav.no/")
+    }
+
+    @Test
+    fun `håndterer NAV-questions`() {
+        val teamNavn = "consumer-group-1"
+        val qa = QuizApplication(teamNavn)
+        qa.handle(Question(category = "NAV", question =  "På hvilken nettside finner man informasjon om rekruttering til NAV IT?"))
+        val messages = qa.messages()
+        assertEquals(1, messages.size)
+        assertEquals((messages[0] as Answer).answer, "https://www.detsombetyrnoe.no/")
+    }
 }

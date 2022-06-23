@@ -17,7 +17,7 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         logger.log(question)
         if (question.category == "team-registration") handleRegisterTeam(question);
         if (question.category == "arithmetic") handleArithmetic(question);
-        if (question.category == "question") handleQuestion(question);
+        if (question.category == "NAV") handleQuestion(question);
         if(question.category == "make-ingress") handleIngress(question);
     }
 
