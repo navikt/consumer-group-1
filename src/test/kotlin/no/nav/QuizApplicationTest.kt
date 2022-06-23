@@ -17,5 +17,13 @@ internal class QuizApplicationTest {
         assertEquals(1, messages.size)
         assertEquals(teamNavn, (messages[0] as Answer).answer)
     }
-
+    @Test
+    fun `håndterer arithmetics`() {
+        val teamNavn = "consumer-group-1"
+        val qa = QuizApplication(teamNavn)
+        qa.handle(Question(category = "arithmetic", question =  "5 - 3"))
+        val messages = qa.messages()
+        assertEquals(1, messages.size)
+        assertEquals((messages[0] as Answer).answer, "2")
+    }
 }
